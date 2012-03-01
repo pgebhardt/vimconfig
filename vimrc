@@ -104,14 +104,12 @@ set spelllang=en,de
 " autosave on buffer exit
 set autowriteall
 
-" Backups are good, but put them in another dir
+" backups are good, but put them in another dir
 set backup
 set backupdir=~/.backups
 
 " no tool bar please
-set guioptions='acirlmgt'
 set showtabline=2
-set guifont=Monospace\ 11
 
 " Taglist
 let Tlist_GainFocus_On_ToggleOpen = 1
@@ -133,3 +131,11 @@ autocmd BufRead *.vala set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead *.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 au BufRead,BufNewFile *.vala            setfiletype vala
 au BufRead,BufNewFile *.vapi            setfiletype vala
+
+au BufNewFile,BufRead *.cl setf opencl
+
+set guioptions=aAce
+set gfn=Menlo\ Regular:h14
+autocmd VimEnter * NERDTree
+autocmd FileType python map <F6> :w<CR>:!python "%"<CR>
+set omnifunc=pythoncomplete#Complete
